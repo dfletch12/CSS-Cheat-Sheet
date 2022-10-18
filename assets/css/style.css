@@ -92,9 +92,14 @@ code {
 }
 
 /* create our main grid with flexbox, use negative margins to offset the padding on the .card-column class */
- .grid {
-  display: flexbox;
-} 
+    
+  /* .grid {
+    display: flex;
+      width: 100%;
+      grid-template-columns:
+      flex(6, 1fr);
+  } */
+
 
 
 /* using a mobile-first approach, set base column width to be 100% and we'll update it using media queries for larger screen sizes */
@@ -108,10 +113,14 @@ code {
 .code-card {
   /* outline is like border, but on the outside of the box instead of inside */
   display: flex;
+  flex-flow: row wrap;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   outline: 2px dashed var(--gin);
   outline-offset: -2px;
   transition: all 0.5s ease-in-out;
+  margin: 1em;
 }
 
 .code-card .card-header {
@@ -133,7 +142,11 @@ code {
 }
 
 /* each card's code block grows to the height of the largest code block on the page, making each card even in height */
-.code-card .code-block {}
+.code-card .code-block {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 0 0 100%;
+}
 
 .code-card pre {
   /* set styles to make it so code wraps in <pre> instead of overflowing */
